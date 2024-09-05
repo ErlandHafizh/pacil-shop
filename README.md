@@ -1,4 +1,4 @@
-Tautan menuju aplikasi PWS: http://erland-hafizh-mentalhealthtracker.pbp.cs.ui.ac.id/
+Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
 [] Cara mengimplementasikan checlist yang ditugaskan secara step-by-step
 
