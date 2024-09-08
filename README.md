@@ -11,28 +11,7 @@ Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
 [x] Bagan request client ke web aplikasi berbasis Django beserta responnya dan kaitan antara urls.py, views.py, models.py, dan berkas html
 
-Client Request
-      |
-      v
- Django Server
-      |
-      v
-urls.py (URL Routing)
-      |
-      v
-views.py (View)
-      |
-      v
-(models.py jika diperlukan untuk interaksi dengan database)
-      |
-      v
-views.py (View, setelah mendapatkan data dari models.py)
-      |
-      v
-Templates (HTML Rendering)
-      |
-      v
-Response dikirim kembali ke Client
+Client Request => Django Server => urls.py (URL Routing) => views.py (View) => (models.py jika diperlukan untuk interaksi dengan database) => views.py (View, setelah mendapatkan data dari models.py) => Templates (HTML Rendering) => Response dikirim kembali ke Client
 
 Penjelasan bagan di atas terhadap keterkaitan antara urls.py, views.py, models.py, dan berkas html: 
 1) urls.py bertanggung jawab untuk menentukan pola URL dan mengarahkan permintaan klien ke view yang sesuai di views.py. Ketika klien mengirim permintaan HTTP (seperti GET atau POST), Django pertama-tama memeriksa urls.py untuk menemukan pola URL yang cocok. Jika ditemukan kecocokan, Django akan mengirimkan permintaan tersebut ke fungsi atau kelas view yang ditentukan di views.py.
