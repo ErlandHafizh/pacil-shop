@@ -9,7 +9,8 @@ Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 6) 
 7) 
 
-[] Bagan request client ke web aplikasi berbasis Django beserta responnya dan kaitan antara urls.py, views.py, models.py, dan berkas html
+[x] Bagan request client ke web aplikasi berbasis Django beserta responnya dan kaitan antara urls.py, views.py, models.py, dan berkas html
+
 Client Request
       |
       v
@@ -41,16 +42,19 @@ Penjelasan bagan di atas terhadap keterkaitan antara urls.py, views.py, models.p
 5) Setelah template HTML dirender, Django server mengirimkan HTML tersebut sebagai respons HTTP kembali ke klien. Browser klien menerima respons ini dan menampilkan halaman web kepada pengguna.
 
 
-[] Fungsi git dalam pengembangan perangkat lunak
+[x] Fungsi git dalam pengembangan perangkat lunak
+
 Git memiliki beberapa fungsi dalam pengembangan perangkat lunak, antara lain:
 1) Git memungkinkan developer untuk menyimpan riwayat perubahan, memulihkan versi sebelumnya, dan melihat siapa yang mengubah apa dan kapan
 2) Git memungkinkan beberapa developer untuk bekerja bersama di proyek yang sama secara efisien tanpa saling menganggu.
 3) Git menyediakan cadangan kode secara otomatis melalui repositori yang terdistribusi, yang berarti setiap developer memiliki salinan lengkap dari 'history' suatu proyek. Hal ini membantu dalam pemulihan jika ada kegagalan sistem atau kehilangan data
 
-[] Mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak
+[x] Mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak
+
 Django sering dijadikan framework permulaan dalam pembelajaran pengembangan perangkat lunak dikarenakan sifatnya yang 'full-stack', hal ini berarti mencakup semua yang diperlukan untuk membangun aplikasi web, dimulai dari pengelolaan basis data hingga routing URL dan template HTML. Hal ini memungkinkan pemula untuk memahami konsep pengembangan web secara menyeluruh. 
 Selain itu, Django juga menawarkan kemudahan penggunaan dengan sintaks yang jelas dan konvensi yang masuk akal, ditambah dengan dokumentasi yang sangat lengkap dan tutorial yang membantu pemula memahami konsep-konsep penting. 
 Lebih jauh lagi, Django memungkinkan pengembangan aplikasi yang scalable dan aman, sehingga bukan hanya pilihan baik untuk belajar, tetapi juga untuk pengembangan aplikasi yang nyata. 
 
-[] Mengapa model pada Django disebut sebagai ORM
+[x] Mengapa model pada Django disebut sebagai ORM
+
 Model pada Django disebut sebagai ORM atau Object-Relational-Mapping karena menggunakan pendekatan tersebut untuk berinteraksi dengan basis data. ORM adalah teknik pemrograman yang menghubungkan antara objek dalam kode program, seperti kelas Python, dengan tabel dalam basis data relasional. Hal ini memungkinkan developer untuk bekerja dengan basis data menggunakan objek Python dibanding menulis perintah SQL secara langsung, membuat developer lebih intuitif bagi mereka yang terbiasa dengan pemrograman berorientasi objek. ORM Django mendukung pembuatan pembuatan query yang kompleks dengan metode Python yang mudah dibaca dan dikelola, serta menawarkan fitur-fitur seperti validasi, hubungan antar tabel, dan lain-lain. Hal ini membuatnya menjadi alat yang kuat untuk manipulasi data yang efisien dan aman dalam aplikasi Django.
