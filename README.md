@@ -111,7 +111,7 @@ Ketiga adalah menambahkan fungsi views baru dalam format XML by ID dan JSON by I
 - Menambahkan path url fungsi views dalam format JSON dan XML by ID ke dalam urlpatterns untuk mengakses fungsi yang telah diimpor.
 
 Screenshots
-![xml](assets\xml.png)
-![json]assets\json.png()
-![xml id](assets\xml_id.png)
-![json id](assets\json_id.png)
+![xml](assets/xml.png)
+![json](assets/json.png)
+![xml id](assets/xml_id.png)
+![json id](assets/json_id.png)
