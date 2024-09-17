@@ -65,4 +65,53 @@ Jika kita tidak menambahkan CSRF token pada form, seorang penyerang dapat membua
 
 Penyerang bisa mengarahkan pengguna yang sudah login untuk membuka halaman berbahaya yang secara otomatis mengirimkan permintaan palsu ke server dengan kredensial pengguna tersebut. Tanpa CSRF token, server tidak bisa membedakan apakah permintaan tersebut berasal dari aplikasi resmi atau situs lain yang berbahaya.
 
-[] Bagaimana saya dapat mengimplementasikan checklist di atas secara step-by-step
+[x] Bagaimana saya dapat mengimplementasikan checklist di atas secara step-by-step
+
+1) Membuat input form untuk menambahkan objek model 
+
+Sebelum dapat membuat input form, kita perlu membuat skeleton yang berfungsi sebagai kerangka views. Setelah itu: 
+- Membuat direktori templates pada direktori utama dan membuat file html baru bernama base.html. File tersebut berfungsi sebagai template dasar yang dapat digunakan sebagai kerangka umum untuk halaman web lainnya di dalam proyek.
+- Membuka settings.py yang ada pada direktori proyek pacil_shop dan menambahkan isian pada variabel TEMPLATES. Hal ini dilakukan agar file base.html dapat terdeteksi sebagai berkas template.
+- Mengubah kode file main.html pada direktori main. Pengubahan terletak pada penggunaan base.html sebagai template utama.
+- Mengubah primary key dari integer menjadi UUID, dengan mengimport 'uuid' pada models.py dan menambahkan variabel id
+- Melakukan migrasi model karena terdapat pengubahan pada models.py
+
+Karena kita telah membuat skeleton, kita baru dapat membuat form input data dan menampilkan product entry pada HTML.
+- Membuat berkas forms.py pada direktori main untuk membuat struktur form yang dapat menerima data product baru.
+- Membuka berkas views.py yang ada pada direktori main dan menambahkan import 'redirect'
+- Membuat fungsi baru dengan nama create_product yang menerima parameter request. Tambahan fungsi ini untuk menghasilkan form yang dapat menambahkan data product secara otomatis ketika data di-submit dari form.
+- Mengubah fungsi show_main yang terdapat pada berkas views.py. Pengubahan terletak pada penambahakan variabel product_entries dan penambahakan key:value baru yaitu 'product_entries' : product_entries pada variabel context.
+- Membuka berkas urls.py yang ada pada direktori main dan mengimport fungsi create_product.
+- Menambahkan path URL ke dalam variabel urlpatterns pada urls.py di main.
+- Membuat berkas HTML baru dengan nama create_product.html pada direktori main. 
+- Membuka berkas main.html dan menambahkan kode ke dalam '{% block content %}' untuk menampilkan data product dalam bentuk tabel serta tombol "Add New Product" yang akan redirecet ke halaman form
+- Mengecek dengan menjalankan server Django.
+
+2) Menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID
+
+Pertama adalah menambahkan fungsi views baru dalam format XML:
+- Membuka berkas views.py yang ada pada direktori main dan menambahkan import HttpResponse dan Serializer pada bagian paling atas.
+- Membuat sebuah fungsi baru bernama show_xml yang menerima parameter request dengan return function berupa HttpResponse yang berisi parameter data hasil query yang sudah diserialisasi menjadi XML.
+- Membuka berkas urls.py yang terdapat di direktori main dan mengimport fungsi show_xml yang telah dibuat.
+- Menambahkan path url ke dalam urlpatterns untuk mengakses fungsi yang telah diimpor.
+
+Kedua adalah menambahkan fungsi views baru dalam format JSON:
+- Membuka berkas views.py yang ada pada direktori main dan membuat fungsi baru bernama show_json yang menerima parameter request dengan return function berupa HttpResponse yang berisi parameter data hasil query yang sudah diserialisasi menjadi JSON.
+- Membuka berkas urls.py yang ada pada direktori main dan mengimport fungsi yang telah dibuat.
+
+Ketiga adalah menambahkan fungsi views baru dalam format XML by ID dan JSON by ID
+- Membuka berkas views.py yang ada pada direktori main dan membuat dua fungsi baru bernama show_xml_by_id dan show_json_by_id dengan parameter request dan id.
+- Membuat sebuah variabel di dalam kedua fungsi tersebut yang dapat menyimpan hasil query dari data dengan id tertentu yang ada pada 'Product'.
+- Menambahkan return function berupa HttpResponse yang berisikan parameter data hasil query yang sudah diserialisasi menjadi JSON dan XML
+- Membuka urls.py yang ada pada direktori main dan mengimport fungsi yang telah dibuat.
+
+3) Membuat routing URL untuk masing-masing views yang telah ditambahkan
+- Menambahkan path url fungsi views dalam format XML ke dalam urlpatterns untuk mengakses fungsi yang telah diimpor.
+- Menambahkan path url fungsi views dalam format JSON ke dalam urlpatterns untuk mengakses fungsi yang telah diimpor.
+- Menambahkan path url fungsi views dalam format JSON dan XML by ID ke dalam urlpatterns untuk mengakses fungsi yang telah diimpor.
+
+Screenshots
+![xml](assets\xml.png)
+![json]assets\json.png()
+![xml id](assets\xml_id.png)
+![json id](assets\json_id.png)
