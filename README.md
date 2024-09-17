@@ -1,6 +1,7 @@
 Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
 #Tugas2
+
 [] Cara mengimplementasikan checlist yang ditugaskan secara step-by-step
 1) Langkah pertama untuk membuat sebuah proyek Django baru adalah dengan membuat direktori utama lokal baru. Setelah itu, kita harus membuat virtual environment dan mengaktifkannya. Setelah virtual environment berhasil terbuat dan menyala, kita perlu membuat berkas requirements.txt di dalam direktori yang sama yang berisi beberapa dependencies. Setelah itu, kita harus melakukan instalasi terhadap dependencies yang berada pada file .txt sebelumnya. Setelah selesai, baru kita dapat membuat proyek Django dengan menjalankan perintah 'django-admin startproject (nama project) .'.
 2) Untuk membuat aplikasi dengan nama main, kita perlu menjalan perintah 'python manage.py startapp main' pada terminal direktori lokal kita. Setelah perintah tersebut dijalankan, direktori baru dengan nama 'main' akan terbentuk pada direktori utama. Setelah terbuat, kita harus mendaftarkan aplikasi main tersebut ke dalam proyek kita dengan membuka berkas settings.py. 
@@ -40,16 +41,28 @@ Lebih jauh lagi, Django memungkinkan pengembangan aplikasi yang scalable dan ama
 Model pada Django disebut sebagai ORM atau Object-Relational-Mapping karena menggunakan pendekatan tersebut untuk berinteraksi dengan basis data. ORM adalah teknik pemrograman yang menghubungkan antara objek dalam kode program, seperti kelas Python, dengan tabel dalam basis data relasional. Hal ini memungkinkan developer untuk bekerja dengan basis data menggunakan objek Python dibanding menulis perintah SQL secara langsung, membuat developer lebih intuitif bagi mereka yang terbiasa dengan pemrograman berorientasi objek. ORM Django mendukung pembuatan pembuatan query yang kompleks dengan metode Python yang mudah dibaca dan dikelola, serta menawarkan fitur-fitur seperti validasi, hubungan antar tabel, dan lain-lain. Hal ini membuatnya menjadi alat yang kuat untuk manipulasi data yang efisien dan aman dalam aplikasi Django.
 
 #Tugas3
-[] Mengapa memerlukan data delivery dalam pengimplementasian sebuah platform
+
+[x] Mengapa memerlukan data delivery dalam pengimplementasian sebuah platform
+
+Data delivery penting dalam pengimplementasian platform karena memungkinkan komunikasi dan pertukaran data antara berbagai komponen sistem atau aplikasi. Hal ini termasuk pengiriman data dari server ke client atau sebaliknya. Dengan adanya mekanisme data delivery, platform dapat memastikan bahwa data yang dibutuhkan oleh pengguna, baik itu diakses melalui web atau aplikasi, dapat dikirim dan diterima secara cepat, aman, dan efisien. Data delivery yang efisien juga mendukung kinerja platform secara keseluruhan, mengoptimalkan penggunaan jaringan, dan memastikan bahwa data sampai dalam bentuk yang benar sesuai dengan kebutuhan aplikasi.
+
+[x] Mana yang lebih baik antara XML dan JSON dan mengapa JSON lebih popular dibandingkan XML
+
+Mana yang lebih baik antara XML dan JSON bergantung pada konteks penggunaan. Secara umum, JSON lebih baik digunakan untuk pengiriman data antara server dan client dikarenakan beberapa alasan antara lain; Lebih ringan dan lebih sederhana, mudah dibaca oleh manusia, dan penerapan lebih luas di API modern. Selain itu, JSON lebih populer daripada XML karena kelebihan-kelebihan yang telah disebutkan sebelumnya. XML lebih cocok jika kita memerlukan struktur data yang kompleks, termasuk elemen-elemen dengan atribut khusus atau ketika data perlu divalidasi menggunakan schema, namun untuk aplikasi modern, kecepatan dan efisiensi JSON lebih disukai.
 
 
-[] Mana yang lebih baik antara XML dan JSON dan mengapa JSON lebih popular dibandingkan XML
+[x] Fungsi dari method is_valid() pada form Django dan mengapa membutuhkan method tersebut
 
+Method is_valid() pada form Django digunakan untuk memeriksa apakah data yang dikirimkan melalui form memenuhi kriteria validasi yang telah ditetapkan. Kita membutuhkan method tersebut untuk memastikan bahwa data yang dikirimkan melalui form benar dan aman sebelum disimpan atau diproses lebih lanjut oleh sistem. Hal ini penting untuk menghindari kesalahan dalam pengolahan data dan menjaga integritas data. 
 
-[] Fungsi dari method is_valid() pada form Django dan mengapa membutuhkan method tersebut
+[x] Mengapa membutuhkan csrf_token saat membuat form di Django dan apa yang dapat terjadi jika tidak menambahkan hal tersebut pada form Django, serta bagaimana hal tersebut dapat dimanfaatkan oleh penyerang
 
+csrf_token adalah sebuah mekanisme keamanan yang digunakan untuk melindungi aplikasi Django dari serangan CSRF. CSRF adalah serangan di mana seorang penyerang memalsukan permintaan yang sah dari pengguna tanpa sepengetahuan mereka.
 
-[] Mengapa membutuhkan csrf_token saat membuat form di Django dan apa yang dapat terjadi jika tidak menambahkan hal tersebut pada form Django, serta bagaimana hal tersebut dapat dimanfaatkan oleh penyerang
+Kita membutuhkan CSRF token karena hal tersebut memastikan bahwa permintaan yang dikirim melalui form berasal dari sumber yang sah (pengguna yang mengirimkan form dari halaman aplikasi) dan bukan dari situs eksternal yang berbahaya.
 
+Jika kita tidak menambahkan CSRF token pada form, seorang penyerang dapat membuat permintaan palsu yang tampak sah dari pengguna yang telah login. Misalnya, mereka bisa memanipulasi transaksi, mengubah data, atau mengambil tindakan berbahaya lainnya atas nama pengguna.
+
+Penyerang bisa mengarahkan pengguna yang sudah login untuk membuka halaman berbahaya yang secara otomatis mengirimkan permintaan palsu ke server dengan kredensial pengguna tersebut. Tanpa CSRF token, server tidak bisa membedakan apakah permintaan tersebut berasal dari aplikasi resmi atau situs lain yang berbahaya.
 
 [] Bagaimana saya dapat mengimplementasikan checklist di atas secara step-by-step
