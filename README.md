@@ -145,4 +145,54 @@ Saat pengguna login, Django memeriksa kredensial mereka dengan mengautentikasi u
 - Secure => Cookie hanya dikirim melalui koneksi HTTPS
 - SameSite =>Membatasi pengiriman cookie pada request cross-site
 
-[] Langkah-langkah untuk mengimplementasikan checklist di atas (keseluruhan tugas 4)
+[X] Langkah-langkah untuk mengimplementasikan checklist di atas (keseluruhan tugas 4)
+
+1. Mengimplementasikan fungsi registrasi, login, dan logout
+
+1) Membuat fungsi registrasi 
+- Mengaktifkan virtual environment pada terminal
+- Menambahkan import UserCreationForm dan messages pada file views.py
+- Menambahkan fungsi register pada views.py yang berguna untuk menghasilkan formulir registrasi secara otomatis dan akan menghasilkan akun pengguna ketika data telah disubmit
+- Membuat file HTML baru dengan nama register pada direktori main/templates
+- Mengimpor fungsi register yang telah dibuat sebelumnya pada file urls.py
+- Menambahkan path url baru ke dalam urlpatterns agar dapat mengakses fungsi yang telah diimpor sebelumnya
+
+2) Membuat fungsi login
+- Membuka file views.py dan menambahkan impor authenticate, login, dan AuthenticationForm
+- Menambahkan fungsi login_user ke dalam views.py dan akan berguna untuk mengautentikasi pengguna yang ingin login
+- Membuat berkas HTML baru dengan nama login pada direktori main/templates
+- Membuka file urls.py yang ada pada subdirektori main dan mengimpor fungsi login_user
+- Menambahkan path url ke dalam urlpatterns agar dapat mengakses fungsi yang telah diimpor sebelumnya
+
+3) Membuat fungsi logout
+- Membuka file views.py dan menambahkan impor logout
+- Menambahkan fungsi logout_user dan akan berguna untuk melakukan mekanisme logout
+- Membuka file main.html yang ada pada subdirektori templates dan menambahkan beberapa potongan kode html setelah hyperlink tag untuk Add New Product
+- Membuka file urls.py yang ada pada subdirektori main dan mengimpor fungsi logout_user
+- Menambahkan path url ke dalam urlpatterns agar dapat mengakses fungsi yang telah diimpor sebelumnya
+
+4) Membatasi akses halaman Main untuk pengguna
+- Membuka berkas views.py pada subdirektori main dan menambahkan impor login_required 
+- Menambahkan potongan kode '@login_required(login_url='/login')' di atas fungsi show_main agar halaman main hanya dapat diakses oleh pengguna yang telah login saja
+
+2. Membuat dua akun pengguna dengan masing-masing tiga dummy data
+- Melakukan register akun pada halaman website dengan membuat username dan password untuk setiap pengguna
+- Memencet button 'Add New Product', dan menambahkan setiap nama, section, price, dan description untuk 3 dummy data 
+
+3. Menghubungkan model product dengan user
+- Membuka file models.py pada subdirektori main dan mengimpor 'User'
+- Menambahkan variabel user pada class Product di dalam file models.py untuk menghubungkan satu product dengan satu user dimana sebuah product pasti terkaitkan dengan seorang user
+- Membuka file views.py pada subdirektori main dan mengubah fungsi create_product dengan penambahan parameter 'commit=False' pada variabel product dan mengisi field user dengan objek User dari return value request.user
+- Mengubah nilai dari product_entries menjadi 'user=request.user' dan mengubah value dari key 'name' di variabel context menjadi 'request.user.username'
+- Menyimpan perubahan dan melakukan migrasi model
+- Mengaplikasikan migrasi 
+- Mengimpor 'os' pada file settings.py pada subdirektori pacil_shop
+- Mengganti variabel DEBUG dan menambahkan variabel PRODUCTION pada file yang sama.
+
+4. Menampilkan detail informasi pengguna yang sedang logged in dan menerapkan cookies pada halaman utama aplikasi
+- Membuka views.py pada subdirektori main dan mengimpor HttpResponseRedirect, reverse, dan datetime
+- Menambahkan fungsionalitas cookie bernama last_login pada fungsi login_user untuk melihat kapan terakhir kali user login, dilakukan dengan mengganti kode pada blok 'if form.is_valid()'
+- Menambahkan potongan kode 'last_login': request.COOKIES['last_login']' pada fungsi show_main di dalam variabel context
+- Mengubah fungsi logout_user untuk menghapus cookie last_login saat user melakukan logout
+- Membuka file main.html dan menambahkan potongan kode HTML untuk menunjukkan sesi terakhir login user di setelah tombol logout pada aplikasi
+- Refresh halaman login atau menjalankan server kembali 
