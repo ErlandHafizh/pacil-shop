@@ -1,6 +1,6 @@
 Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
-======================================TUGAS 2======================================
+=======================TUGAS 2=======================
 
 [] Cara mengimplementasikan checlist yang ditugaskan secara step-by-step
 1) Langkah pertama untuk membuat sebuah proyek Django baru adalah dengan membuat direktori utama lokal baru. Setelah itu, kita harus membuat virtual environment dan mengaktifkannya. Setelah virtual environment berhasil terbuat dan menyala, kita perlu membuat berkas requirements.txt di dalam direktori yang sama yang berisi beberapa dependencies. Setelah itu, kita harus melakukan instalasi terhadap dependencies yang berada pada file .txt sebelumnya. Setelah selesai, baru kita dapat membuat proyek Django dengan menjalankan perintah 'django-admin startproject (nama project) .'.
@@ -40,7 +40,7 @@ Lebih jauh lagi, Django memungkinkan pengembangan aplikasi yang scalable dan ama
 
 Model pada Django disebut sebagai ORM atau Object-Relational-Mapping karena menggunakan pendekatan tersebut untuk berinteraksi dengan basis data. ORM adalah teknik pemrograman yang menghubungkan antara objek dalam kode program, seperti kelas Python, dengan tabel dalam basis data relasional. Hal ini memungkinkan developer untuk bekerja dengan basis data menggunakan objek Python dibanding menulis perintah SQL secara langsung, membuat developer lebih intuitif bagi mereka yang terbiasa dengan pemrograman berorientasi objek. ORM Django mendukung pembuatan pembuatan query yang kompleks dengan metode Python yang mudah dibaca dan dikelola, serta menawarkan fitur-fitur seperti validasi, hubungan antar tabel, dan lain-lain. Hal ini membuatnya menjadi alat yang kuat untuk manipulasi data yang efisien dan aman dalam aplikasi Django.
 
-======================================TUGAS 3======================================
+=======================TUGAS 3=======================
 
 [x] Mengapa memerlukan data delivery dalam pengimplementasian sebuah platform
 
@@ -116,7 +116,7 @@ Screenshots
 ![xml id](assets/xml_id.png)
 ![json id](assets/json_id.png)
 
-======================================TUGAS 4======================================
+=======================TUGAS 4=======================
 
 [X] Perbedaan antara HttpResponseRedirecet() dan redirect()
 
