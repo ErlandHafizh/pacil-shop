@@ -1,6 +1,6 @@
 Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
-#Tugas2
+======================================TUGAS 2======================================
 
 [] Cara mengimplementasikan checlist yang ditugaskan secara step-by-step
 1) Langkah pertama untuk membuat sebuah proyek Django baru adalah dengan membuat direktori utama lokal baru. Setelah itu, kita harus membuat virtual environment dan mengaktifkannya. Setelah virtual environment berhasil terbuat dan menyala, kita perlu membuat berkas requirements.txt di dalam direktori yang sama yang berisi beberapa dependencies. Setelah itu, kita harus melakukan instalasi terhadap dependencies yang berada pada file .txt sebelumnya. Setelah selesai, baru kita dapat membuat proyek Django dengan menjalankan perintah 'django-admin startproject (nama project) .'.
@@ -40,7 +40,7 @@ Lebih jauh lagi, Django memungkinkan pengembangan aplikasi yang scalable dan ama
 
 Model pada Django disebut sebagai ORM atau Object-Relational-Mapping karena menggunakan pendekatan tersebut untuk berinteraksi dengan basis data. ORM adalah teknik pemrograman yang menghubungkan antara objek dalam kode program, seperti kelas Python, dengan tabel dalam basis data relasional. Hal ini memungkinkan developer untuk bekerja dengan basis data menggunakan objek Python dibanding menulis perintah SQL secara langsung, membuat developer lebih intuitif bagi mereka yang terbiasa dengan pemrograman berorientasi objek. ORM Django mendukung pembuatan pembuatan query yang kompleks dengan metode Python yang mudah dibaca dan dikelola, serta menawarkan fitur-fitur seperti validasi, hubungan antar tabel, dan lain-lain. Hal ini membuatnya menjadi alat yang kuat untuk manipulasi data yang efisien dan aman dalam aplikasi Django.
 
-#Tugas3
+======================================TUGAS 3======================================
 
 [x] Mengapa memerlukan data delivery dalam pengimplementasian sebuah platform
 
@@ -115,3 +115,34 @@ Screenshots
 ![json](assets/json.png)
 ![xml id](assets/xml_id.png)
 ![json id](assets/json_id.png)
+
+======================================TUGAS 4======================================
+
+[X] Perbedaan antara HttpResponseRedirecet() dan redirect()
+
+HttpResponseRedirect() adalah kelas di Django yang digunakan untuk mengarahkan pengguna ke URL lain. Saat menggunakan ini, kita harus secara manual menyertakan path URL dalam bentuk string. Beda hal dengan redirect(), redirect() sendiri adalah shortcut di Django yang lebih fleksibel dan dapat menerima berbagai jenis input seperti URL, view name, atau bahkan objek. Django akan otomatis menangani dan menerjemahkannya ke dalam bentuk URL yang tepat. 
+
+[X] Cara kerja penghubungan model Product dengan User
+
+Penghubungan model product dengan user bisa dilakukan dengan menggunakan ForeignKey atau ManyToManyField, tergantung dan sesuai kebutuhan. Jika satu pengguna hanya dapat memiliki satu produk, kita dapat menggunakan ForeignKey. Jika satu pengguna bisa memiliki banyak produk dan satu produk bisa dimiliki oleh banyak pengguna, maka kita menggunakan ManyToManyField.
+
+[X] Perbedaan antara authentication dan authorization, apa yang dilakukan saat pengguna login, dan bagaimana Django mengimplementasikan kedua konsep tersebut
+
+1) Authentication adalah proses untuk memverifikasi identitas pengguna, memastikan bahwa mereka adalah siapa yang mereka klaim. Di Django, otentikasi terjadi saat pengguna memasukkan kredensial seperti username dan password.
+
+2) Authorization adalah proses untuk memeriksa apakah pengguna yang sudah terotentikasi memiliki izin untuk mengakses sumber daya tertentu atau melakukan tindakan tertentu.
+
+Saat pengguna login, Django memeriksa kredensial mereka dengan mengautentikasi username dan password, kemudian menciptakan session dan menyimpan informasi pengguna di database.
+
+[X] Bagaimana Django mengingat pengguna yang telah login dan kegunaan lain dari cookies dan apakah semua cookies aman untuk digunakan
+
+1)  Django menggunakan session dan cookies untuk mengingat pengguna yang sudah login. Setelah pengguna berhasil login, Django membuat session untuk pengguna tersebut, dan session ID disimpan di cookie pengguna. Setiap permintaan selanjutnya akan memuat session ID ini, memungkinkan Django untuk mengenali pengguna.
+
+2) Kegunaan lain dari cookies adalah cookies dapat digunakan untuk menyimpan referensi pengguna, informasi tracking, atau data terkait sesi pengguna di aplikasi web.
+
+3) Tidak semua cookies aman secara default. Ada risiko keamanan seperti session hijacking dan cross-site scripting. Django menyediakan pengaturan keamanan untuk cookies, seperti:
+- HttpOnly => Cookie hanya dapat diakses melalui HTTP(S), bukan JavaScript
+- Secure => Cookie hanya dikirim melalui koneksi HTTPS
+- SameSite =>Membatasi pengiriman cookie pada request cross-site
+
+[] Langkah-langkah untuk mengimplementasikan checklist di atas (keseluruhan tugas 4)

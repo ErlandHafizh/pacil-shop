@@ -16,6 +16,7 @@
 <table>
     <tr>
     <th>Product Name</th>
+    <th>Sections</th>
     <th>Price</th>
     <th>Description</th>
     </tr>
@@ -25,6 +26,7 @@
     {% for product in product_entries %}
     <tr>
     <td>{{product.name}}</td>
+    <td>{{product.sections}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
     </tr>
@@ -36,5 +38,9 @@
 
 <a href="{% url 'main:create_product' %}">
     <button>Add New Product</button>
+<a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 </a>
+
 {% endblock content %}
