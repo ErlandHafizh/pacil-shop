@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}  <!-- Ensure you load the static template tag -->
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="container mx-auto px-4 py-8 mt-16">
+<div class="w-full px-4 py-8 bg-[#bde6f2] min-h-screen flex flex-col justify-center items-center">
   <h1 class="text-3xl font-bold text-center mb-8 text-black">{{ namatoko }}</h1>
 
   {% if not product_entries %}
-    <p class="text-black-700 text-center">Belum ada data product pada Pacil Shop.</p>
+    <div class="flex flex-col items-center justify-center space-y-6">
+      <img src="{% static 'image/empty-cart.png' %}" alt="Empty cart" class="w-32 h-32 mb-4"/>
+      <p class="text-black text-center font-bold">Belum ada data product pada Pacil Shop.</p>
+
+      <a href="{% url 'main:create_product' %}">
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+          Add New Product
+        </button>
+      </a>
+
+      <h5 class="text-gray-700 font-bold mt-4">Sesi terakhir login: {{ last_login }}</h5>
+    </div>
   {% else %}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for product in product_entries %}
         {% include 'card_product.html' with product=product %}
       {% endfor %}
     </div>
+
+    <div class="mt-8 flex flex-col items-center">
+      <a href="{% url 'main:create_product' %}">
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+          Add New Product
+        </button>
+      </a>
+      <h5 class="text-gray-700 font-bold mt-4">Sesi terakhir login: {{ last_login }}</h5>
+    </div>
   {% endif %}
-
-  <div class="mt-8 flex justify-center space-x-4">
-    <a href="{% url 'main:create_product' %}">
-      <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
-        Add New Product
-      </button>
-    </a>
-  </div>
-
-  <div class="mt-4 text-center">
-    <h5 class="text-gray-700">Sesi terakhir login: {{ last_login }}</h5>
-  </div>
 </div>
 
 {% endblock content %}

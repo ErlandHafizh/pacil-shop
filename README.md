@@ -231,10 +231,27 @@ Contoh Aplikasi:
 
 1. Implementasi fungsi untuk delete dan edit product
 
-2. Kustomisasi halaman login, register, dan tambah product
+1) Edit product:
+Membuat sebuah fungsi di views untuk menghandle perubahan pada data product, dengan menambahkan fungsi edit_product dengan code Attribute.objects.get(pk = id) kita dapat mengambil data dari database sesuai dengan id nya dan melakukan perubahan pada data tsb dengan mengisi ulang form dari data dengan id spesifik tsb dan melakukan POST untuk menyimpan perubahan.
 
-3. Kustomisasi halaman daftar product dengan penambahan card untuk product
+Membuat berkas HTML baru dengan nama edit_product.html yang berisikan form untuk mengedit product, serta menambahkan url ke halaman edit_product dengan mengimport di urls.py fungsi edit_product dan menambahkan path('edit-product/uuid:id', edit_product, name='edit_product') untuk melakukan redirect ke path edit_product
+
+2) Delete product:
+- Membuat sebuah fungsi di views untuk menghandle perubahan pada data product, dengan menambahkan fungsi delete_product dengan code Attribute.objects.get(pk = id) kita dapat mengambil data dari database sesuai dengan id nya dan melakukan method delete kepada Attribute yang telah diambil tsb.
+- Menambahkan url untuk memanggil fungsi delete_product dengan mengimport di urls.py fungsi delete_product dan menambahkan path('delete/uuid:id', delete_product, name='delete_product'), untuk menjalankan fungsi tsb
+
+2. Kustomisasi halaman login, register, dan tambah product
+- Memodifikasi file login.html, register.html dan add product.html dengan menggunakan inline styling dengan tailwind css, fitur yang dibuat mencakup, perubahan pada bentuk form dengan tidak menggunakan form.as.table pada input form sehingga form dapat diterapkan styling yang sesuai pada form, membuat form centered dengan menambahkan div pada form lalu melakukan styling agar terbuat semacam kotak untuk form tsb.
+
+3. Kustomisasi halaman daftar product dengan penambahan card untuk product, dan jika belum ada product maka halaman daftar product akan menampilkan pesan bahwa belum ada product yang terdaftar
+
+- Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card. Hal ini dilakukan dengan memodifikasi file main.html dengan menggunakan inline styling dengan tailwind css, fitur yang dibuat mencakup, modifikasi langsung pada file main.html for loop yang akan menampilkan detail produk dengan membungkusnya dengan div untuk menampilkan semua data dalam bentuk kartu/card.
+
+- Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar. Hal ini dilakukan dengan memodifikasi file main.html dengan menggunakan inline styling dengan tailwind css, fitur yang dibuat mencakup, penambahan image tag agar menampilkan gambar apabila produk tidak ada, lalu melakukan styling pada image agar sesuai dengan size yang diperlukan dan melakukan centering pada image dan pesan No Products Available
 
 4. Penambahan dua buah button pada card product (edit dan delete)
+- Menambahkan button didalam div card dengan tag a sebagai link dan dilakukan styling agar berbentuk sebuah button, ditambahkan code berikut kedalam link a dengan memanggil fungsi yang sesuai apabila user menekan button tsb, seperti "{% url 'main:edit_product' attribute.pk %}" dan {% url 'main:delete_product' attribute.pk %}
 
 5. Penambahan navbar yang responsive terhadap perbedaan ukuran device
+- Membuat file baru navbar.html yang berisikan code dengan fitur : logo pada navbar, halaman home, halaman products, menampilkan nama user - kelas, dan tombol logout dipindahkan kedalam navbar.
+- Menambahkan design responsive Pada layar kecil, tombol akan memunculkan dan menyembunyikan menu dengan menambahkan atau menghapus kelas hidden menggunakan JavaScript dengan mengubahnya menjadi hamburger yang diambil dari svg http://www.w3.org/2000/svg
