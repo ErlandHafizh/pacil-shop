@@ -1,6 +1,6 @@
 Tautan menuju aplikasi PWS: http://erland-hafizh-pacilshop.pbp.cs.ui.ac.id/
 
-=======================TUGAS 2=======================
+# Tugas 2
 
 [] Cara mengimplementasikan checlist yang ditugaskan secara step-by-step
 1) Langkah pertama untuk membuat sebuah proyek Django baru adalah dengan membuat direktori utama lokal baru. Setelah itu, kita harus membuat virtual environment dan mengaktifkannya. Setelah virtual environment berhasil terbuat dan menyala, kita perlu membuat berkas requirements.txt di dalam direktori yang sama yang berisi beberapa dependencies. Setelah itu, kita harus melakukan instalasi terhadap dependencies yang berada pada file .txt sebelumnya. Setelah selesai, baru kita dapat membuat proyek Django dengan menjalankan perintah 'django-admin startproject (nama project) .'.
@@ -40,7 +40,7 @@ Lebih jauh lagi, Django memungkinkan pengembangan aplikasi yang scalable dan ama
 
 Model pada Django disebut sebagai ORM atau Object-Relational-Mapping karena menggunakan pendekatan tersebut untuk berinteraksi dengan basis data. ORM adalah teknik pemrograman yang menghubungkan antara objek dalam kode program, seperti kelas Python, dengan tabel dalam basis data relasional. Hal ini memungkinkan developer untuk bekerja dengan basis data menggunakan objek Python dibanding menulis perintah SQL secara langsung, membuat developer lebih intuitif bagi mereka yang terbiasa dengan pemrograman berorientasi objek. ORM Django mendukung pembuatan pembuatan query yang kompleks dengan metode Python yang mudah dibaca dan dikelola, serta menawarkan fitur-fitur seperti validasi, hubungan antar tabel, dan lain-lain. Hal ini membuatnya menjadi alat yang kuat untuk manipulasi data yang efisien dan aman dalam aplikasi Django.
 
-=======================TUGAS 3=======================
+# Tugas 3
 
 [x] Mengapa memerlukan data delivery dalam pengimplementasian sebuah platform
 
@@ -116,7 +116,7 @@ Screenshots
 ![xml id](assets/xml_id.png)
 ![json id](assets/json_id.png)
 
-=======================TUGAS 4=======================
+# Tugas 4
 
 [X] Perbedaan antara HttpResponseRedirecet() dan redirect()
 
@@ -197,7 +197,7 @@ Saat pengguna login, Django memeriksa kredensial mereka dengan mengautentikasi u
 - Membuka file main.html dan menambahkan potongan kode HTML untuk menunjukkan sesi terakhir login user di setelah tombol logout pada aplikasi
 - Refresh halaman login atau menjalankan server kembali 
 
-=======================TUGAS 5=======================
+# Tugas 5
 
 [X] Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut
 
@@ -231,14 +231,13 @@ Contoh Aplikasi:
 
 1. Implementasi fungsi untuk delete dan edit product
 
-1) Edit product:
+- Edit product:
 Membuat sebuah fungsi di views untuk menghandle perubahan pada data product, dengan menambahkan fungsi edit_product dengan code Attribute.objects.get(pk = id) kita dapat mengambil data dari database sesuai dengan id nya dan melakukan perubahan pada data tsb dengan mengisi ulang form dari data dengan id spesifik tsb dan melakukan POST untuk menyimpan perubahan.
-
 Membuat berkas HTML baru dengan nama edit_product.html yang berisikan form untuk mengedit product, serta menambahkan url ke halaman edit_product dengan mengimport di urls.py fungsi edit_product dan menambahkan path('edit-product/uuid:id', edit_product, name='edit_product') untuk melakukan redirect ke path edit_product
 
-2) Delete product:
-- Membuat sebuah fungsi di views untuk menghandle perubahan pada data product, dengan menambahkan fungsi delete_product dengan code Attribute.objects.get(pk = id) kita dapat mengambil data dari database sesuai dengan id nya dan melakukan method delete kepada Attribute yang telah diambil tsb.
-- Menambahkan url untuk memanggil fungsi delete_product dengan mengimport di urls.py fungsi delete_product dan menambahkan path('delete/uuid:id', delete_product, name='delete_product'), untuk menjalankan fungsi tsb
+- Delete product:
+Membuat sebuah fungsi di views untuk menghandle perubahan pada data product, dengan menambahkan fungsi delete_product dengan code Attribute.objects.get(pk = id) kita dapat mengambil data dari database sesuai dengan id nya dan melakukan method delete kepada Attribute yang telah diambil tsb.
+Menambahkan url untuk memanggil fungsi delete_product dengan mengimport di urls.py fungsi delete_product dan menambahkan path('delete/uuid:id', delete_product, name='delete_product'), untuk menjalankan fungsi tsb
 
 2. Kustomisasi halaman login, register, dan tambah product
 - Memodifikasi file login.html, register.html dan add product.html dengan menggunakan inline styling dengan tailwind css, fitur yang dibuat mencakup, perubahan pada bentuk form dengan tidak menggunakan form.as.table pada input form sehingga form dapat diterapkan styling yang sesuai pada form, membuat form centered dengan menambahkan div pada form lalu melakukan styling agar terbuat semacam kotak untuk form tsb.
