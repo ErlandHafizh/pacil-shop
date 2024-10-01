@@ -1,46 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{ namatoko }}</h1>
+{% include 'navbar.html' %}
 
-<h5>Nama Toko: </h5>
-<p>{{ namatoko }}<p>
+<div class="container mx-auto px-4 py-8 mt-16">
+  <h1 class="text-3xl font-bold text-center mb-8 text-black">{{ namatoko }}</h1>
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
-    
-<h5>Class: </h5>
-<p>{{ class }}<p>
-{% if not product_entries %}
-<p>Belum ada data product pada Pacil Shop.</p>
-{% else %}
-<table>
-    <tr>
-    <th>Product Name</th>
-    <th>Sections</th>
-    <th>Price</th>
-    <th>Description</th>
-    </tr>
+  {% if not product_entries %}
+    <p class="text-black-700 text-center">Belum ada data product pada Pacil Shop.</p>
+  {% else %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for product in product_entries %}
+        {% include 'card_product.html' with product=product %}
+      {% endfor %}
+    </div>
+  {% endif %}
 
-    {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
-    {% endcomment %} 
-    {% for product in product_entries %}
-    <tr>
-    <td>{{product.name}}</td>
-    <td>{{product.sections}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.description}}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% endif %}
+  <div class="mt-8 flex justify-center space-x-4">
+    <a href="{% url 'main:create_product' %}">
+      <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+        Add New Product
+      </button>
+    </a>
+  </div>
 
-<br />
-
-<a href="{% url 'main:create_product' %}">
-    <button>Add New Product</button>
-<a href="{% url 'main:logout' %}">
-    <button>Logout</button>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-</a>
+  <div class="mt-4 text-center">
+    <h5 class="text-gray-700">Sesi terakhir login: {{ last_login }}</h5>
+  </div>
+</div>
 
 {% endblock content %}

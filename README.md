@@ -196,3 +196,45 @@ Saat pengguna login, Django memeriksa kredensial mereka dengan mengautentikasi u
 - Mengubah fungsi logout_user untuk menghapus cookie last_login saat user melakukan logout
 - Membuka file main.html dan menambahkan potongan kode HTML untuk menunjukkan sesi terakhir login user di setelah tombol logout pada aplikasi
 - Refresh halaman login atau menjalankan server kembali 
+
+=======================TUGAS 5=======================
+
+[X] Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut
+
+Urutan pengambilan CSS selector dari yang paling tinggi adalah:
+- Inline Styles => CSS yang ditulis langsung pada elemen HTML menggunakan atribut style="". 
+- ID Selectors => Selector yang ditandai dengan simbol #, seperti #header, memiliki prioritas lebih tinggi daripada class, tag, atau selector lainnya.
+- Class Selectors => Selector yang menggunakan tanda titik (.), seperti .container, memiliki prioritas lebih tinggi daripada tag elemen tetapi lebih rendah dari ID.
+- Tag (Element) Selectors: Selector yang langsung memilih elemen HTML seperti div, p, atau a, memiliki prioritas terendah di antara selector lainnya.
+
+[X] Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design
+
+Responsive design adalah konsep yang memungkinkan aplikasi web menyesuaikan tampilannya agar optimal di berbagai perangkat dengan ukuran layar yang berbeda, seperti desktop, tablet, dan smartphone. Hal ini penting karena pengguna mengakses website dari berbagai perangkat, dan jika tampilan tidak dioptimalkan untuk setiap perangkat, pengalaman pengguna akan terganggu.
+
+Contoh Aplikasi:
+
+- Aplikasi yang sudah menerapkan responsive design: Twitter, yang memiliki layout yang disesuaikan dengan baik di semua perangkat, dari desktop hingga mobile.
+- Aplikasi yang belum menerapkan responsive design: Situs web lama yang tidak memiliki versi mobile-friendly dan hanya tampil dengan baik di layar desktop. Sebagai contoh, situs berita atau blog lawas yang memerlukan zoom manual di perangkat mobile.
+
+[X] Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut
+
+1. Margin adalah ruang di luar border elemen. Ini mengontrol jarak antara elemen dengan elemen lain di sekitarnya. Tidak memiliki warna dan selalu transparan.
+2. Border adalah garis yang mengelilingi elemen. Border ini berada di antara padding dan margin. Border bisa dikustomisasi dengan warna, ketebalan, dan gaya (misalnya solid, dashed).
+3. Padding adalah ruang di dalam border elemen. Padding mengontrol jarak antara isi elemen (content) dengan batas dalam (border) elemen.
+
+[X] Jelaskan konsep flex box dan grid layout beserta kegunaannya
+
+1. Flexbox (Flexible Box) adalah layout model CSS yang dirancang untuk menyusun elemen dalam satu dimensi, baik secara horizontal (baris) atau vertikal (kolom). Flexbox memudahkan pengaturan tata letak yang fleksibel dan responsif, dengan kemampuan untuk meratakan, mendistribusikan ruang di antara item, serta memesan ulang item di dalam kontainer.
+2. CSS Grid Layout adalah model dua dimensi yang memungkinkan elemen-elemen disusun dalam bentuk baris dan kolom. Grid memungkinkan kontrol penuh atas pengaturan item secara vertikal dan horizontal, serta mendukung pembagian tata letak menjadi area yang lebih kompleks.
+
+[X] Langkah-langkah untuk mengimplementasikan checklist di atas (keseluruhan tugas 5)
+
+1. Implementasi fungsi untuk delete dan edit product
+
+2. Kustomisasi halaman login, register, dan tambah product
+
+3. Kustomisasi halaman daftar product dengan penambahan card untuk product
+
+4. Penambahan dua buah button pada card product (edit dan delete)
+
+5. Penambahan navbar yang responsive terhadap perbedaan ukuran device
