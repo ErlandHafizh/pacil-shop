@@ -254,3 +254,40 @@ Menambahkan url untuk memanggil fungsi delete_product dengan mengimport di urls.
 5. Penambahan navbar yang responsive terhadap perbedaan ukuran device
 - Membuat file baru navbar.html yang berisikan code dengan fitur : logo pada navbar, halaman home, halaman products, menampilkan nama user - kelas, dan tombol logout dipindahkan kedalam navbar.
 - Menambahkan design responsive Pada layar kecil, tombol akan memunculkan dan menyembunyikan menu dengan menambahkan atau menghapus kelas hidden menggunakan JavaScript dengan mengubahnya menjadi hamburger yang diambil dari svg http://www.w3.org/2000/svg
+
+# Tugas 6
+
+[X] Manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web
+Beberapa manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web:
+1. Interaktivitas yang lebih tinggi: JavaScript memungkinkan pengembangan fitur interaktif, seperti validasi form secara langsung (client-side), animasi, dan manipulasi elemen DOM tanpa perlu memuat ulang halaman.
+2. Responsivitas cepat: Dengan JavaScript, aplikasi dapat merespons aksi pengguna secara real-time, memperbarui konten secara dinamis menggunakan AJAX, dan memberikan pengalaman pengguna yang lebih baik.
+3. Integrasi dengan API: JavaScript dapat digunakan untuk mengirim dan menerima data dari server (via AJAX atau Fetch API), memungkinkan komunikasi dengan server tanpa perlu memuat ulang halaman.
+
+[X] Fungsi dari penggunaan await ketika kita menggunakan fetch() dan apa yang akan terjadi jika tidak menggunakan await
+1. await digunakan untuk memberhentikan eksekusi kode sampai Promise (yang dihasilkan oleh fetch()) selesai, yaitu ketika server merespons permintaan atau ketika terjadi kesalahan. Ini membuat kode lebih mudah dibaca, seolah-olah ditulis secara sinkron, meskipun tetap berjalan secara asinkron.
+2. Tanpa await, fetch() akan mengembalikan Promise dan kode akan terus berjalan tanpa menunggu respons dari server. Hal ini dapat menyebabkan error atau hasil yang tidak diinginkan jika data dari server belum diterima saat kode berikutnya dijalankan.
+
+[X] Mengapa perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+- csrf_exempt digunakan untuk mengecualikan view dari pemeriksaan Cross-Site Request Forgery (CSRF) yang secara default dilakukan oleh Django untuk melindungi aplikasi dari serangan CSRF.
+- Pada AJAX POST request, jika token CSRF tidak disertakan atau tidak valid, Django akan memblokir permintaan tersebut. Menggunakan csrf_exempt pada view yang digunakan oleh AJAX POST berarti Django tidak akan memeriksa token CSRF pada request ini.
+- Kadang-kadang, dalam pengembangan lokal atau untuk API publik yang tidak memerlukan autentikasi, Anda mungkin perlu mengecualikan pemeriksaan CSRF agar AJAX request berhasil. Namun, hal ini harus digunakan dengan hati-hati karena menonaktifkan perlindungan CSRF dapat menambah risiko keamanan.
+
+
+[X] Mengapa pemberishan data input pengguna dilakukan di belakang (backend) dan tidak dilakukan di frontend saja?
+1. Data input pengguna yang hanya dibersihkan di frontend tidak cukup aman karena pengguna dapat memanipulasi atau memodifikasi kode JavaScript, misalnya dengan menggunakan DevTools browser. Oleh karena itu, pembersihan dan validasi di backend diperlukan untuk memastikan bahwa data yang masuk benar-benar aman dan bebas dari input yang tidak valid atau berbahaya (seperti SQL injection atau XSS).
+2. Backend adalah sumber terakhir kebenaran dalam aplikasi. Dengan membersihkan dan memvalidasi data di backend, Anda memastikan bahwa data yang masuk ke sistem sudah sesuai dengan aturan yang ditetapkan, terlepas dari apa yang terjadi di frontend.
+3. Validasi di frontend dapat diabaikan dengan mudah oleh pengguna yang mengubah atau menonaktifkan JavaScript. Dengan demikian, backend harus tetap melakukan validasi sebagai lapisan terakhir.
+
+
+[X] Implementasi checklist step-by-step
+1. AJAX GET
+- Di bagian bawah file HTML, buat fungsi yang akan diterapkan pada setiap card, yaitu getProductEntries() yang akan melakukan AJAX GET ke endpoint show_json.
+- Buat request AJAX menggunakan fetch() untuk mengambil data dengan metode GET. Gunakan endpoint show_json, dan setelah data diambil, tampilkan ke dalam elemen HTML menggunakan innerHTML.
+- Ubah views.py untuk menyediakan data JSON kepada front-end, buat view show_json yang akan menampilkan data dalam format JSON hanya untuk pengguna yang sedang login, seperti data = Attribute.objects.filter(user=request.user).
+
+2. AJAX POST
+- Tambahkan sebuah tombol pada template (HTML) yang digunakan untuk memunculkan modal. Tombol ini akan memanggil fungsi showModal() untuk menampilkan modal yang berisi form input product baru.
+- Buat fungsi view baru di views.py yang akan menangani permintaan untuk menambahkan product baru. Fungsi ini mendukung metode POST untuk menerima data form dan menambahkannya ke database.
+- Di urls.py, tambahkan path baru yang menghubungkan URL /create-ajax/ dengan fungsi view yang baru saja dibuat.
+- Pada form modal yang sudah dibuat, tambahkan AJAX untuk mengirimkan data form ke path /create-ajax/ tanpa me-reload halaman. Form ini akan dikirim ke URL /create-ajax/ saat disubmit.
+- Agar daftar product terbaru dapat langsung muncul tanpa reload, buat fungsi refreshProductList() yang akan memuat ulang daftar product secara asinkronus setelah data baru ditambahkan. Anda bisa melakukan ini dengan mengirim permintaan GET via AJAX untuk mengambil data terbaru dan menampilkan ulang di bagian daftar produk.
